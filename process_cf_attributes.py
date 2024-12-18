@@ -32,6 +32,10 @@ class CF_Attributes:
                     "Use": row["Use"].strip().split(', '),
                     "Description": row["Description"].strip()
                 }
+                self.all_attributes = {
+                    key: self.all_attributes[key]
+                    for key in sorted(self.all_attributes)
+                }
 
     def _coordinate_variable_attributes(self):
         self.coordinate_variable_attributes = {}
@@ -90,6 +94,11 @@ class CF_Attributes:
             for key, value in var_dict.items():
                 if key not in self.variable_attributes:
                     self.variable_attributes[key] = value
+
+        self.variable_attributes = {
+            key: self.variable_attributes[key]
+            for key in sorted(self.variable_attributes)
+        }
 
 def main():
     # Create an instance of CF_Attributes
