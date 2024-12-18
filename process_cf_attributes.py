@@ -1,9 +1,11 @@
 import csv
+from pathlib import Path
 
 class CF_Attributes:
 
     def __init__(self):
-        self.file_path = 'cf_attributes.csv'
+        script_dir = Path(__file__).parent
+        self.file_path = script_dir / 'cf_attributes.csv'
         self._to_dict()
         self._global_attributes()
         self._coordinate_variable_attributes()
